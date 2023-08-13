@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 import Profile from './components/Profile.jsx'
+import Spinach from "./Spinach";
+import Popeye from "./Popeye";
 import './index.css'
 
 const router = createBrowserRouter([
@@ -12,7 +14,11 @@ const router = createBrowserRouter([
   },
   {
     path: "profile",
-    element: <Profile />
+    element: <Profile />,
+    children:[
+      { path: "spinach", element: <Spinach />},
+      { path: "popeye", element: <Popeye />}
+    ]
   }
 ])
 
