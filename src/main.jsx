@@ -1,32 +1,22 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import App from './App.jsx'
-import Profile from './components/Profile.jsx'
-import Spinach from "./components/Spinach";
-import Popeye from "./components/Popeye";
-import DefaultProfile from './components/DefaultProfile.jsx'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./App";
+import Profile from "./components/Profile";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />
+    element: <App />,
   },
   {
-    path: "profile",
+    path: "profile/:name", // Turns
     element: <Profile />,
-    children:[
-      { index: true, element: <DefaultProfile /> },
-      { path: "spinach", element: <Spinach />},
-      { path: "popeye", element: <Popeye />}
-    ]
-  }
-])
+  },
+]);
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
